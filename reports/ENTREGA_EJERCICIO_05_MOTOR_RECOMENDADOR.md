@@ -3,7 +3,7 @@
 **Maestría en Inteligencia Artificial · Universidad Autónoma de Santo Domingo (UASD)**  
 **Asignatura:** Ciencia de Datos II  
 **Docente:** Edwin Ramón José Nolasco  
-**Estudiante:** [Nombre del Estudiante]  
+**Estudiante:** Aníbal Pérez  
 **Repositorio GitHub:** `https://github.com/TU_USUARIO/inf8239-u03-recomendadores` *(Reemplace con la URL de su repositorio)*  
 
 ---
