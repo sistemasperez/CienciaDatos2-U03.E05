@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Entrega Ejercicio 05 · Motor Recomendador Reproducible · INF-8239</title>
+  <style>
+    @page { size: letter; margin: 18mm 16mm; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      line-height: 1.55;
+      font-size: 13.5px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    h1 {
+      color: #0f172a;
+      font-size: 22px;
+      margin-bottom: 4px;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 8px;
+    }
+    .header-meta {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      font-size: 12.5px;
+      color: #475569;
+    }
+    .header-meta strong { color: #0f172a; }
+    h2 {
+      color: #1e3a8a;
+      font-size: 16px;
+      margin-top: 22px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 4px;
+    }
+    h3 {
+      color: #1e293b;
+      font-size: 14px;
+      margin-top: 14px;
+      margin-bottom: 6px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 12px;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 7px 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      font-weight: 600;
+    }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    tr.highlight {
+      background-color: #eff6ff;
+      font-weight: bold;
+    }
+    td:first-child { text-align: left; }
+    .badge {
+      display: inline-block;
+      padding: 2px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 4px;
+      background: #dbeafe;
+      color: #1e40af;
+    }
+    ul, ol {
+      margin: 6px 0 12px 20px;
+      padding: 0;
+    }
+    li { margin-bottom: 4px; }
+    .callout {
+      background: #f0fdf4;
+      border-left: 4px solid #22c55e;
+      padding: 10px 14px;
+      margin: 12px 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 12.5px;
+    }
+    .callout-title {
+      font-weight: bold;
+      color: #15803d;
+      margin-bottom: 3px;
+    }
+    code {
+      background: #f1f5f9;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 12px;
+      color: #0f172a;
+    }
+    @media print {
+      body { padding: 0; font-size: 12px; }
+      .no-print { display: none; }
+      h2 { page-break-after: avoid; }
+      table { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>INF-8239 · Ejercicio 05: Motor Recomendador Reproducible</h1>
+
+  <div class="header-meta">
+    <div><strong>Programa:</strong> Maestría en Inteligencia Artificial · Universidad Autónoma de Santo Domingo (UASD)</div>
+    <div><strong>Asignatura:</strong> Ciencia de Datos II | <strong>Docente:</strong> Edwin Ramón José Nolasco</div>
+    <div><strong>Estudiante:</strong> [Nombre del Estudiante] | <strong>Fecha:</strong> Octubre 2026</div>
+    <div><strong>Enlace al Repositorio GitHub:</strong> <code>https://github.com/TU_USUARIO/inf8239-u03-recomendadores</code> <em>(Reemplazar por su URL)</em></div>
+  </div>
+
+  <h2>1. Tabla Principal de Resultados Comparativos</h2>
+  <p>Evaluación fuera de línea realizada mediante el protocolo causal <code>temporal_leave_one_out</code> sobre los 587 usuarios evaluables de MovieLens (<code>ml-latest-small</code>):</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Modelo / Enfoque</th>
+        <th>Parámetro &alpha;</th>
+        <th>NDCG@10</th>
+        <th>HitRate@10</th>
+        <th>Precision@10</th>
+        <th>Recall@10</th>
+        <th>Cobertura Catálogo</th>
+        <th>RMSE (Rating)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Popularidad Ponderada (Baseline Bayesiano)</td>
+        <td>-</td>
+        <td>0.0197</td>
+        <td>0.0426</td>
+        <td>0.0043</td>
+        <td>0.0426</td>
+        <td>1.22%</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>Contenido Puro (TF-IDF de Géneros)</td>
+        <td>0.00</td>
+        <td>0.0108</td>
+        <td>0.0256</td>
+        <td>0.0026</td>
+        <td>0.0256</td>
+        <td>11.71%</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>Híbrido (&alpha; = 0.10)</td>
+        <td>0.10</td>
+        <td>0.0105</td>
+        <td>0.0239</td>
+        <td>0.0024</td>
+        <td>0.0239</td>
+        <td>11.15%</td>
+        <td>1.0264</td>
+      </tr>
+      <tr>
+        <td>Híbrido (&alpha; = 0.25)</td>
+        <td>0.25</td>
+        <td>0.0127</td>
+        <td>0.0324</td>
+        <td>0.0032</td>
+        <td>0.0324</td>
+        <td>10.65%</td>
+        <td>1.0264</td>
+      </tr>
+      <tr>
+        <td>Híbrido (&alpha; = 0.50)</td>
+        <td>0.50</td>
+        <td>0.0144</td>
+        <td>0.0307</td>
+        <td>0.0031</td>
+        <td>0.0307</td>
+        <td>8.87%</td>
+        <td>1.0264</td>
+      </tr>
+      <tr class="highlight">
+        <td>Híbrido (&alpha; = 0.75) <span class="badge">Decisión Pareto</span></td>
+        <td>0.75</td>
+        <td>0.0172</td>
+        <td>0.0375</td>
+        <td>0.0037</td>
+        <td>0.0375</td>
+        <td>7.75%</td>
+        <td>1.0264</td>
+      </tr>
+      <tr>
+        <td>Híbrido (&alpha; = 0.90)</td>
+        <td>0.90</td>
+        <td>0.0189</td>
+        <td>0.0392</td>
+        <td>0.0039</td>
+        <td>0.0392</td>
+        <td>7.47%</td>
+        <td>1.0264</td>
+      </tr>
+      <tr>
+        <td>Colaborativo Puro (Matrix Factorization SVD)</td>
+        <td>1.00</td>
+        <td>0.0184</td>
+        <td>0.0375</td>
+        <td>0.0037</td>
+        <td>0.0375</td>
+        <td>7.46%</td>
+        <td>1.0264</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>2. Metodología, Partición Causal y Licencia</h2>
+  <ul>
+    <li><strong>Dataset y Licencia:</strong> MovieLens <code>ml-latest-small</code> (GroupLens Research / Universidad de Minnesota). SHA-256 verificado: <code>696d65a3dfceac7c45750ad32df2c259311949efec81f0f144fdfb91ebc9e436</code>. Cumpliendo los términos de uso ético, los datos crudos no se redistribuyen en Git (ignorados en <code>.gitignore</code>).</li>
+    <li><strong>Densidad y Esparcidad:</strong> 100,836 calificaciones entre 610 usuarios y 9,724 películas valoradas. Densidad: <strong>1.697%</strong> (esparcidad: 98.303%). Media global: 3.50 estrellas.</li>
+    <li><strong>Partición Causal (<code>temporal_leave_one_out</code>):</strong> Se reservó para cada usuario el último evento cronológico en el conjunto de prueba (<code>test</code>), entrenando con las interacciones previas (<code>train</code>: 100,226 filas). Esto previene estrictamente el <em>data leakage temporal</em>.</li>
+  </ul>
+
+  <h2>3. Análisis de Modelos, Errores y Límites</h2>
+  <ul>
+    <li><strong>Popularidad Ponderada:</strong> Aunque maximiza el acierto bruto (NDCG=0.0197) por el sesgo natural hacia películas taquilleras, sufre de <strong>sesgo de concentración crítico (solo cubre 1.22% del catálogo)</strong>, recomendando siempre los mismos títulos e ignorando la individualidad de los usuarios.</li>
+    <li><strong>Contenido Puro (&alpha;=0.0):</strong> Maximiza la cobertura (11.71%), pero decae en precisión (NDCG=0.0108) debido a la <strong>sobre-especialización léxica</strong> en descriptores de género.</li>
+    <li><strong>Factorización Matricial (SVD / SGD):</strong> 20 factores latentes, regularización 0.05. Logra un RMSE de 1.0264 en predicción de rating y un buen ranking (NDCG=0.0184), pero es incapaz de recomendar ítems o usuarios sin interacciones previas.</li>
+  </ul>
+
+  <h2>4. Decisión Final en la Frontera de Pareto (&alpha; = 0.75)</h2>
+  <div class="callout">
+    <div class="callout-title">Justificación de la Decisión Multicriterio</div>
+    Al combinar linealmente las predicciones colaborativas normalizadas con la afinidad temática de géneros bajo <strong>&alpha; = 0.75</strong>, el sistema logra el balance óptimo:
+    <strong>NDCG@10 = 0.0172</strong> (muy cercano al óptimo colaborativo) mientras mantiene una <strong>cobertura de catálogo del 7.75%</strong> (más de <strong>6 veces superior</strong> a la cobertura del modelo de popularidad). Esto previene la fatiga del catálogo y ofrece una experiencia personalizada y diversa.
+  </div>
+
+  <h2>5. Estrategia para Arranque en Frío (Cold-Start)</h2>
+  <ul>
+    <li><strong>Usuarios Fríos:</strong> Fallback determinista al top-10 de <strong>popularidad ponderada bayesiana</strong> (archivo <code>reports/cold_start_fallback.csv</code>), asegurando calidad percibida sin riesgo de recomendaciones vacías.</li>
+    <li><strong>Ítems Fríos:</strong> Recomendación mediante el perfil vectorial de géneros (TF-IDF), permitiendo sugerir películas recién estrenadas sin requerir calificaciones previas.</li>
+  </ul>
+
+  <h2>6. Declaración de Uso Ético y Responsable de IA</h2>
+  <ul>
+    <li><strong>Herramientas:</strong> Asistencia mediante Gemini 3.8 Flash (High) vía Antigravity IDE.</li>
+    <li><strong>Propósito:</strong> Asistencia en depuración de arrays 2D para scikit-learn, diseño de pruebas unitarias (<code>pytest</code>), formulación vectorizada de <code>Precision@K</code>, <code>Recall@K</code> y <code>NDCG@K</code>, y visualización de la frontera de Pareto.</li>
+    <li><strong>Verificaciones:</strong> Se comprobó manualmente la exactitud de las métricas, la partición causal temporal, la reproducibilidad del entorno con <code>uv</code> y la exclusión de datos protegidos en Git. Suite de pruebas: <strong>9 pruebas aprobadas al 100%</strong>.</li>
+    <li><strong>Responsabilidad:</strong> El estudiante asume la autoría y responsabilidad íntegra de la solución entregada.</li>
+  </ul>
+
+</body>
+</html>
