@@ -2,8 +2,9 @@
 
 **Maestría en Inteligencia Artificial · Universidad Autónoma de Santo Domingo (UASD)**  
 **Asignatura:** Ciencia de Datos II  
-**Autor del Trabajo:** Estudiante Maestría IA  
+**Autor del Trabajo:** Juan Aníbal Pérez  
 **Docente:** Edwin Ramón José Nolasco  
+**Repositorio GitHub:** [https://github.com/sistemasperez/CienciaDatos2-U03.E05](https://github.com/sistemasperez/CienciaDatos2-U03.E05)  
 **Estado:** Proyecto 100% reproducible, auditado y testeado bajo rúbrica analítica (5.0 / 5.0 pts).
 
 ---

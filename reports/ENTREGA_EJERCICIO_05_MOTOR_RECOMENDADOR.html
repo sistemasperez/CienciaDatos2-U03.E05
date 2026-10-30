@@ -117,8 +117,8 @@
   <div class="header-meta">
     <div><strong>Programa:</strong> Maestría en Inteligencia Artificial · Universidad Autónoma de Santo Domingo (UASD)</div>
     <div><strong>Asignatura:</strong> Ciencia de Datos II | <strong>Docente:</strong> Edwin Ramón José Nolasco</div>
-    <div><strong>Estudiante:</strong> Aníbal Pérez | <strong>Fecha:</strong> Octubre 2026</div>
-    <div><strong>Enlace al Repositorio GitHub:</strong> <code>https://github.com/TU_USUARIO/inf8239-u03-recomendadores</code> <em>(Reemplazar por su URL)</em></div>
+    <div><strong>Estudiante:</strong> Juan Aníbal Pérez | <strong>Fecha:</strong> Octubre 2026</div>
+    <div><strong>Enlace al Repositorio GitHub:</strong> <a href="https://github.com/sistemasperez/CienciaDatos2-U03.E05" target="_blank" style="color: #2563eb; text-decoration: underline;"><code>https://github.com/sistemasperez/CienciaDatos2-U03.E05</code></a></div>
   </div>
 
   <h2>1. Tabla Principal de Resultados Comparativos</h2>
@@ -240,6 +240,17 @@
     <div class="callout-title">Justificación de la Decisión Multicriterio</div>
     Al combinar linealmente las predicciones colaborativas normalizadas con la afinidad temática de géneros bajo <strong>&alpha; = 0.75</strong>, el sistema logra el balance óptimo:
     <strong>NDCG@10 = 0.0172</strong> (muy cercano al óptimo colaborativo) mientras mantiene una <strong>cobertura de catálogo del 7.75%</strong> (más de <strong>6 veces superior</strong> a la cobertura del modelo de popularidad). Esto previene la fatiga del catálogo y ofrece una experiencia personalizada y diversa.
+  </div>
+
+  <div style="display: flex; gap: 14px; margin: 14px 0; justify-content: center; page-break-inside: avoid;">
+    <div style="flex: 1; text-align: center;">
+      <img src="alpha_tradeoff.png" alt="Trade-off Alfa" style="max-width: 100%; height: auto; border: 1px solid #cbd5e1; border-radius: 6px;">
+      <div style="font-size: 11px; color: #64748b; margin-top: 4px;"><strong>Figura 1:</strong> Trade-off Ranking vs Cobertura (&alpha;).</div>
+    </div>
+    <div style="flex: 1; text-align: center;">
+      <img src="pareto_frontier.png" alt="Frontera de Pareto" style="max-width: 100%; height: auto; border: 1px solid #cbd5e1; border-radius: 6px;">
+      <div style="font-size: 11px; color: #64748b; margin-top: 4px;"><strong>Figura 2:</strong> Frontera de Pareto multiobjetivo (&alpha; = 0.75 óptimo).</div>
+    </div>
   </div>
 
   <h2>5. Estrategia para Arranque en Frío (Cold-Start)</h2>
