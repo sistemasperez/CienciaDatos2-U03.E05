@@ -5,6 +5,7 @@
 **Autor del Trabajo:** Juan Aníbal Pérez  
 **Docente:** Edwin Ramón José Nolasco  
 **Repositorio GitHub:** [https://github.com/sistemasperez/CienciaDatos2-U03.E05](https://github.com/sistemasperez/CienciaDatos2-U03.E05)  
+**Documento de Entrega (PDF):** [📄 Descargar / Ver PDF del Informe](reports/ENTREGA_EJERCICIO_05_MOTOR_RECOMENDADOR.pdf) *(o versión Markdown: [reports/ENTREGA_EJERCICIO_05_MOTOR_RECOMENDADOR.md](reports/ENTREGA_EJERCICIO_05_MOTOR_RECOMENDADOR.md))*  
 **Estado:** Proyecto 100% reproducible, auditado y testeado bajo rúbrica analítica (5.0 / 5.0 pts).
 
 ---
